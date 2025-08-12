@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy & Terms | E-Payment App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles & Variables */
+        :root {
+            --primary-bg-color: #f7f9fc;
+            --secondary-bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --secondary-text-color: #666666;
+            --accent-color: #6c63ff;
+            --border-color: #e0e0e0;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 250px;
+            background-color: var(--secondary-bg-color);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 1rem;
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--secondary-text-color);
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar nav ul li a:hover,
+        .sidebar nav ul li a.active {
+            background-color: #e6e6f2;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .content-card {
+            background-color: var(--secondary-bg-color);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .content-card h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-card h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .content-card p,
+        .content-card ul {
+            font-size: 1rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 1rem;
+        }
+
+        .content-card ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
+        .content-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 1rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Legal</h2>
+            <nav>
+                <ul>
+                    <li><a href="#privacy-policy" class="active">Privacy Policy</a></li>
+                    <li><a href="#terms-of-service">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-card">
+                <section id="privacy-policy">
+                    <h1>Privacy Policy</h1>
+                    <p>Last updated: August 12, 2025</p>
+                    <p>Your privacy is important to us. This policy explains what information we collect, how we use it, and your choices regarding our use of your data.</p>
+
+                    <h2>1. Information We Collect</h2>
+                    <p>We collect various types of information for different purposes to provide and improve our service to you.</p>
+                    <ul>
+                        <li>**Personal Data**: While using our service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). This includes, but is not limited to:
+                            <ul>
+                                <li>Email address</li>
+                                <li>Full name</li>
+                                <li>Phone number</li>
+                                <li>Transaction details</li>
+                            </ul>
+                        </li>
+                        <li>**Usage Data**: We may also collect information on how the service is accessed and used. This Usage Data may include information such as your computer's IP address, browser type, browser version, the pages of our Service that you visit, the time and date of your visit, and other diagnostic data.</li>
+                    </ul>
+
+                    <h2>2. Use of Data</h2>
+                    <p>We use the collected data for various purposes:</p>
+                    <ul>
+                        <li>To provide and maintain our service</li>
+                        <li>To notify you about changes to our service</li>
+                        <li>To allow you to participate in interactive features when you choose to do so</li>
+                        <li>To provide customer support</li>
+                        <li>To monitor the usage of our service</li>
+                        <li>To detect, prevent, and address technical issues</li>
+                    </ul>
+
+                    <h2>3. Security of Data</h2>
+                    <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
+                </section>
+
+                <hr style="margin: 4rem 0; border: 0; border-top: 1px solid var(--border-color);">
+
+                <section id="terms-of-service">
+                    <h1>Terms of Service</h1>
+                    <p>Welcome to our E-Payment Service. By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.</p>
+
+                    <h2>1. User Accounts</h2>
+                    <p>When you create an account with us, you must provide us with information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.</p>
+
+                    <h2>2. Termination</h2>
+                    <p>We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+
+                    <h2>3. Changes to These Terms</h2>
+                    <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide at least 30 days' notice prior to any new terms taking effect. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.</p>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

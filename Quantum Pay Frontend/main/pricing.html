@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Pay - Pricing</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-purple: #6a11cb;
+            --secondary-purple: #2575fc;
+            --light-purple: #eef2ff;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --cta-gradient: linear-gradient(to right, var(--primary-purple), var(--secondary-purple));
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-purple);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-purple);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .sign-in-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .sign-in-btn:hover {
+            color: var(--primary-purple);
+        }
+
+        .get-started-btn {
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Pricing Section */
+        #pricing-section {
+            padding-top: 6rem;
+            background-color: var(--light-purple);
+            text-align: center;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pricing-card .badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background-color: #d1fae5;
+            color: #10b981;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card p.description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card .price .currency {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-right: 4px;
+        }
+
+        .pricing-card .price .period {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+            margin-left: 4px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card ul li {
+            position: relative;
+            padding-left: 1.75rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .pricing-card ul li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .pricing-card .cta-button {
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            display: block;
+            margin-top: auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card.secondary .cta-button {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .pricing-card.secondary .cta-button:hover {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            border-color: var(--primary-purple);
+        }
+
+        /* Testimonials Section */
+        #testimonials-section {
+            padding: 6rem 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .testimonial-card .quote-icon {
+            width: 48px;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-card .rating {
+            color: #facc15;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-card p.testimonial-text {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-card .author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .testimonial-card .author-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .testimonial-card .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        #faq-section {
+            padding: 6rem 0;
+            background-color: var(--light-purple);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-light);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--text-dark);
+        }
+
+        .faq-toggle-icon {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding-top: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust as needed */
+            padding-top: 1rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-col h5 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a, .footer-contact p {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-purple);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a img {
+            width: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-buttons {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="loading.html" class="logo">
+                    <img src="images/icon.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="loading.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing" class="active">Pricing</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community">Community</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="sign-in-btn">Sign In</button>
+                    <a href="#" class="get-started-btn">Get Started</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="pricing-section">
+            <div class="container">
+                <h2 class="section-title">Pricing & Plans</h2>
+                <p class="section-subtitle">Choose a plan that's right for you. Get started today with our free plan.</p>
+                <div class="pricing-cards">
+                    <div class="pricing-card secondary">
+                        <h3>Free</h3>
+                        <p class="description">For individuals and small teams to get started.</p>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            0
+                            <span class="period">/month</span>
+                        </div>
+                        <ul>
+                            <li>Up to 10 transactions</li>
+                            <li>Standard security</li>
+                            <li>Basic analytics</li>
+                            <li>Email support</li>
+                        </ul>
+                        <a href="#" class="cta-button">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <span class="badge">Most Popular</span>
+                        <h3>Professional</h3>
+                        <p class="description">For growing businesses that need more.</p>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            29
+                            <span class="period">/month</span>
+                        </div>
+                        <ul>
+                            <li>Unlimited transactions</li>
+                            <li>Advanced security</li>
+                            <li>Detailed analytics</li>
+                            <li>Priority chat support</li>
+                            <li>Dedicated account manager</li>
+                        </ul>
+                        <a href="#" class="cta-button">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card secondary">
+                        <h3>Enterprise</h3>
+                        <p class="description">For large organizations with complex needs.</p>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            99
+                            <span class="period">/month</span>
+                        </div>
+                        <ul>
+                            <li>Custom transaction limits</li>
+                            <li>Bank-level security</li>
+                            <li>Advanced fraud detection</li>
+                            <li>24/7 phone support</li>
+                            <li>Custom integrations</li>
+                        </ul>
+                        <a href="#" class="cta-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">What Our Users Say</h2>
+                <p class="section-subtitle">Real feedback from real users who love Quantum Pay.</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <img src="https://example.com/quote-icon.svg" alt="Quote icon" class="quote-icon">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">"Quantum Pay has completely changed the way I manage my finances. The app is intuitive and the security features give me total peace of mind."</p>
+                        <div class="author">
+                            <img src="https://example.com/user-avatar-1.jpg" alt="User avatar">
+                            <div class="author-info">
+                                <h4>Sarah T.</h4>
+                                <p>Freelance Designer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="https://example.com/quote-icon.svg" alt="Quote icon" class="quote-icon">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">"The real-time analytics are a game-changer for my business. I can see exactly where my money is going, which has helped me make smarter financial decisions."</p>
+                        <div class="author">
+                            <img src="https://example.com/user-avatar-2.jpg" alt="User avatar">
+                            <div class="author-info">
+                                <h4>John D.</h4>
+                                <p>Small Business Owner</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="https://example.com/quote-icon.svg" alt="Quote icon" class="quote-icon">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">"I was skeptical at first, but the seamless international transfers won me over. It's fast, affordable, and incredibly reliable. Highly recommend!"</p>
+                        <div class="author">
+                            <img src="https://example.com/user-avatar-3.jpg" alt="User avatar">
+                            <div class="author-info">
+                                <h4>Maria P.</h4>
+                                <p>E-commerce Entrepreneur</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq-section">
+            <div class="container">
+                <h2 class="section-title text-center">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How do I open an account?</span>
+                            <span class="faq-toggle-icon">&plus;</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can open an account in less than 5 minutes by downloading our app on the App Store or Google Play and following the simple on-screen instructions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Is my money safe with Quantum Pay?</span>
+                            <span class="faq-toggle-icon">&plus;</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we use bank-level encryption and security protocols, including multi-factor authentication and real-time fraud detection, to ensure your funds and data are always secure.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What are the fees for international transfers?</span>
+                            <span class="faq-toggle-icon">&plus;</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our fees are transparent and competitive. The cost depends on the destination and transfer amount, but we always show you the exact fee and exchange rate upfront.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I use Quantum Pay for business transactions?</span>
+                            <span class="faq-toggle-icon">&plus;</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely. We offer a range of features tailored for businesses, including expense tracking, multiple user access, and custom reporting. Contact our support team to learn more.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="loading.html" class="footer-logo">
+                    <img src="https://example.com/quantum-pay-logo.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <p>Secure, fast, and reliable payment solutions for the modern world. Send money globally with bank-level encryption.</p>
+                <div class="social-icons">
+                    <a href="#"><img src="https://example.com/twitter-icon.svg" alt="Twitter"></a>
+                    <a href="#"><img src="https://example.com/linkedin-icon.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="https://example.com/facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#"><img src="https://example.com/instagram-icon.svg" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="legal.html">Privacy Policy</a></li>
+                    <li><a href="legal.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h5>Contact</h5>
+                <p>support@quantumpay.com</p>
+                <p>+1 (555) 123-4567</p>
+                <p>San Francisco, CA</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Quantum Pay. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Page loaded and ready!');
+
+            // Highlight the active navigation link based on the page.
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const path = window.location.pathname.split('/').pop();
+            navLinks.forEach(link => {
+                if (link.href.includes(path) && path !== '') {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    link.classList.add('active');
+                } else if (path === 'loading.html' && link.href.includes('loading.html')) {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+
+            // FAQ accordion functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = 0;
+                    });
+
+                    // Open the clicked item if it wasn't already active
+                    if (!isActive) {
+                        item.classList.add('active');
+                        const answer = item.querySelector('.faq-answer');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

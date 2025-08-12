@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Pay - Community</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-purple: #6a11cb;
+            --secondary-purple: #2575fc;
+            --light-purple: #eef2ff;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --cta-gradient: linear-gradient(to right, var(--primary-purple), var(--secondary-purple));
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --icon-bg-1: #6a11cb;
+            --icon-bg-2: #2575fc;
+            --icon-bg-3: #8a2be2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-purple);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-purple);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .sign-in-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .sign-in-btn:hover {
+            color: var(--primary-purple);
+        }
+
+        .get-started-btn {
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* Community Intro Section */
+        #community-intro-section {
+            padding-top: 6rem;
+            text-align: center;
+        }
+
+        #community-intro-section .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        #community-intro-section .stat-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #community-intro-section .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        #community-intro-section .stat-card .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background-image: var(--cta-gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        #community-intro-section .stat-card .icon img {
+            filter: brightness(0) invert(1);
+        }
+
+        #community-intro-section .stat-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+        }
+
+        #community-intro-section .stat-card p {
+            color: var(--text-light);
+        }
+
+        /* Community Forums Section */
+        #community-forums-section {
+            padding: 6rem 0;
+        }
+
+        #community-forums-section .forums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        #community-forums-section .forum-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #community-forums-section .forum-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        #community-forums-section .forum-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        #community-forums-section .forum-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        #community-forums-section .forum-card .stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        #community-forums-section .forum-card .stats span {
+            font-weight: 500;
+            color: var(--primary-purple);
+        }
+
+        #community-forums-section .forum-card .join-btn {
+            display: inline-block;
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #community-forums-section .forum-card .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Upcoming Events Section */
+        #upcoming-events-section {
+            padding: 6rem 0;
+            background-color: var(--light-purple);
+        }
+
+        #upcoming-events-section .events-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        #upcoming-events-section .event-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #upcoming-events-section .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        #upcoming-events-section .event-card .event-details {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        #upcoming-events-section .event-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        #upcoming-events-section .event-card .event-details p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        #upcoming-events-section .event-card .event-details .date {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        #upcoming-events-section .event-card .event-details .date img {
+            width: 16px;
+            margin-right: 8px;
+        }
+
+        #upcoming-events-section .event-card .register-btn {
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #upcoming-events-section .event-card .register-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Community Guidelines Section */
+        #community-guidelines-section {
+            padding: 6rem 0;
+        }
+
+        #community-guidelines-section .guidelines-grid {
+            display: flex;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        #community-guidelines-section .guideline-card {
+            background-color: var(--light-purple);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            flex: 1;
+            box-shadow: var(--shadow-light);
+        }
+
+        #community-guidelines-section .guideline-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        #community-guidelines-section .guideline-card h4 img {
+            width: 24px;
+            margin-right: 12px;
+        }
+
+        #community-guidelines-section .guideline-card ul {
+            list-style: none;
+        }
+
+        #community-guidelines-section .guideline-card li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        #community-guidelines-section .guideline-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-purple);
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-col h5 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a, .footer-contact p {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-purple);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a img {
+            width: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            #community-forums-section .forums-grid,
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            #upcoming-events-section .event-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            #upcoming-events-section .event-card .register-btn {
+                margin-top: 1rem;
+            }
+            #community-guidelines-section .guidelines-grid {
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="loading.html" class="logo">
+                    <img src="images/icon.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="loading.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html" >About</a></li>
+                    <li><a href="community.html" class="active">Community</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="sign-in-btn">Sign In</button>
+                    <a href="#" class="get-started-btn">Get Started</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="community-intro-section">
+            <div class="container">
+                <h2 class="section-title">Join Our Community</h2>
+                <p class="section-subtitle">Connect with thousands of users, developers, and fintech enthusiasts who are shaping the future of digital payments.</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="icon">
+                            <img src="https://example.com/users-icon.svg" alt="Community Members icon">
+                        </div>
+                        <h3>50K+</h3>
+                        <p>Community Members</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">
+                            <img src="https://example.com/chat-icon.svg" alt="Daily Messages icon">
+                        </div>
+                        <h3>2.5K+</h3>
+                        <p>Daily Messages</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">
+                            <img src="https://example.com/calendar-icon.svg" alt="Events Hosted icon">
+                        </div>
+                        <h3>150+</h3>
+                        <p>Events Hosted</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">
+                            <img src="https://example.com/badge-icon.svg" alt="Satisfaction Rate icon">
+                        </div>
+                        <h3>95%</h3>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="community-forums-section">
+            <div class="container">
+                <h2 class="section-title">Community Forums</h2>
+                <p class="section-subtitle">Engage in discussions, share knowledge, and get help from our active community.</p>
+                <div class="forums-grid">
+                    <div class="forum-card">
+                        <h4>General Discussion</h4>
+                        <p>Share your experiences and get help from the community.</p>
+                        <div class="stats">
+                            <span>1250 posts</span>
+                            <span>5600 members</span>
+                        </div>
+                        <a href="#" class="join-btn">Join Discussion</a>
+                    </div>
+                    <div class="forum-card">
+                        <h4>Developer API</h4>
+                        <p>Technical discussions about API integration and development.</p>
+                        <div class="stats">
+                            <span>890 posts</span>
+                            <span>2100 members</span>
+                        </div>
+                        <a href="#" class="join-btn">Join Discussion</a>
+                    </div>
+                    <div class="forum-card">
+                        <h4>Feature Requests</h4>
+                        <p>Suggest new features and vote on community proposals.</p>
+                        <div class="stats">
+                            <span>456 posts</span>
+                            <span>3200 members</span>
+                        </div>
+                        <a href="#" class="join-btn">Join Discussion</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="upcoming-events-section">
+            <div class="container">
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-subtitle">Join us at conferences, workshops, and meetups around the world.</p>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-details">
+                            <h4>FinTech Innovation Summit</h4>
+                            <p>Join us for a day of discussions on the future of digital payments.</p>
+                            <span class="date"><img src="https://example.com/calendar-icon-dark.svg" alt="Calendar icon">March 15, 2025</span>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-details">
+                            <h4>Developer Workshop</h4>
+                            <p>Learn how to integrate Quantum Pay API into your applications.</p>
+                            <span class="date"><img src="https://example.com/calendar-icon-dark.svg" alt="Calendar icon">March 22, 2025</span>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-details">
+                            <h4>Community Meetup - SF</h4>
+                            <p>Connect with other Quantum Pay users in San Francisco.</p>
+                            <span class="date"><img src="https://example.com/calendar-icon-dark.svg" alt="Calendar icon">April 5, 2025</span>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="community-guidelines-section">
+            <div class="container">
+                <h2 class="section-title">Community Guidelines</h2>
+                <p class="section-subtitle">Help us maintain a welcoming and productive community for everyone.</p>
+                <div class="guidelines-grid">
+                    <div class="guideline-card">
+                        <h4>
+                            <img src="https://example.com/heart-icon.svg" alt="Heart icon">
+                            Be Respectful
+                        </h4>
+                        <ul>
+                            <li>Treat all members with kindness and respect</li>
+                            <li>Avoid personal attacks or inflammatory language</li>
+                            <li>Be inclusive and welcoming to newcomers</li>
+                        </ul>
+                    </div>
+                    <div class="guideline-card">
+                        <h4>
+                            <img src="https://example.com/user-group-icon.svg" alt="User group icon">
+                            Be Helpful
+                        </h4>
+                        <ul>
+                            <li>Share your knowledge and experiences</li>
+                            <li>Provide constructive feedback</li>
+                            <li>Help others solve problems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="loading.html" class="footer-logo">
+                    <img src="https://example.com/quantum-pay-logo.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <p>Secure, fast, and reliable payment solutions for the modern world. Send money globally with bank-level encryption.</p>
+                <div class="social-icons">
+                    <a href="#"><img src="https://example.com/twitter-icon.svg" alt="Twitter"></a>
+                    <a href="#"><img src="https://example.com/linkedin-icon.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="https://example.com/facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#"><img src="https://example.com/instagram-icon.svg" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="legal.html">Privacy Policy</a></li>
+                    <li><a href="legal.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h5>Contact</h5>
+                <p>support@quantumpay.com</p>
+                <p>+1 (555) 123-4567</p>
+                <p>San Francisco, CA</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Quantum Pay. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Community page loaded!');
+
+            // Highlight the active navigation link based on the page.
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const path = window.location.pathname.split('/').pop();
+            navLinks.forEach(link => {
+                if (link.href.includes(path) && path !== '') {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    link.classList.add('active');
+                } else if (path === 'loading.html' && link.href.includes('loading.html')) {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

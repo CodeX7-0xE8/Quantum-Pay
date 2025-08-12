@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Pay - About</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-purple: #6a11cb;
+            --secondary-purple: #2575fc;
+            --light-purple: #eef2ff;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --cta-gradient: linear-gradient(to right, var(--primary-purple), var(--secondary-purple));
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-purple);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-purple);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .sign-in-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .sign-in-btn:hover {
+            color: var(--primary-purple);
+        }
+
+        .get-started-btn {
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* About Intro Section */
+        #about-intro-section {
+            padding-top: 6rem;
+            text-align: center;
+        }
+
+        #about-intro-section .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        #about-intro-section .stat-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        #about-intro-section .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        #about-intro-section .stat-card .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background-image: var(--cta-gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        #about-intro-section .stat-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        #about-intro-section .stat-card p {
+            color: var(--text-light);
+        }
+
+        /* Mission Section */
+        #mission-section {
+            padding: 6rem 0;
+            background-color: var(--light-purple);
+        }
+
+        #mission-section .mission-content {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        #mission-section .mission-text {
+            flex: 1;
+        }
+
+        #mission-section .mission-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        #mission-section .mission-text p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        #mission-section .mission-text h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        #mission-section .mission-text ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        #mission-section .mission-text ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        #mission-section .mission-text ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-purple);
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        #mission-section .mission-story {
+            flex: 1;
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        #mission-section .mission-story h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        #mission-section .mission-story p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        #mission-section .story-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Team Section */
+        #team-section {
+            padding: 6rem 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        #team-section .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        #team-section .team-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        #team-section .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        #team-section .team-card img {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+        }
+
+        #team-section .team-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        #team-section .team-card h5 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        #team-section .team-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Values Section */
+        #values-section {
+            padding: 6rem 0;
+            background-color: var(--light-purple);
+            text-align: center;
+        }
+
+        #values-section .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        #values-section .value-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        #values-section .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        #values-section .value-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        #values-section .value-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-col h5 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a, .footer-contact p {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-purple);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a img {
+            width: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            #mission-section .mission-content {
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="loading.html" class="logo">
+                    <img src="images/icon.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="loading page.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="sign-in-btn">Sign In</button>
+                    <a href="#" class="get-started-btn">Get Started</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="about-intro-section">
+            <div class="container">
+                <h2 class="section-title">About Quantum Pay</h2>
+                <p class="section-subtitle">We're on a mission to make global payments as easy as sending a text message. Founded in 2025, we've grown to serve millions of users worldwide.</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="icon">
+                            <img src="https://example.com/users-icon.svg" alt="Active Users icon">
+                        </div>
+                        <h3>10M+</h3>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">
+                            <img src="https://example.com/globe-icon.svg" alt="Countries icon">
+                        </div>
+                        <h3>200+</h3>
+                        <p>Countries</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">
+                            <img src="https://example.com/processed-icon.svg" alt="Processed icon">
+                        </div>
+                        <h3>$50B+</h3>
+                        <p>Processed</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">
+                            <img src="https://example.com/uptime-icon.svg" alt="Uptime icon">
+                        </div>
+                        <h3>99.9%</h3>
+                        <p>Uptime</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission-section">
+            <div class="container mission-content">
+                <div class="mission-text">
+                    <h2>Our Mission</h2>
+                    <p>To democratize access to financial services by creating a global payment network that's fast, secure, and accessible to everyone, regardless of their location or economic status.</p>
+                    <h4>What We Believe</h4>
+                    <ul>
+                        <li>Financial freedom should be accessible to everyone</li>
+                        <li>Technology can bridge economic gaps across borders</li>
+                        <li>Security and user experience can coexist perfectly</li>
+                    </ul>
+                </div>
+                <div class="mission-story">
+                    <h4>Our Story</h4>
+                    <p>Founded by a team of fintech veterans who experienced firsthand the frustrations of international money transfers, Quantum Pay was born from a simple idea: sending money shouldn't be complicated, expensive, or slow.</p>
+                    <div class="story-stats">
+                        <p><strong>Founded:</strong> 2020</p>
+                        <p><strong>Series:</strong> B</p>
+                        <p><strong>Employees:</strong> 200+</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team-section">
+            <div class="container">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p class="section-subtitle">The passionate people building the future of digital payments.</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="https://example.com/sarah-chen.jpg" alt="Sarah Chen profile">
+                        <h4>Sarah Chen</h4>
+                        <h5>CEO & Co-Founder</h5>
+                        <p>Former VP of Engineering at Stripe with 15+ years in fintech.</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://example.com/michael-rodriguez.jpg" alt="Michael Rodriguez profile">
+                        <h4>Michael Rodriguez</h4>
+                        <h5>CTO & Co-Founder</h5>
+                        <p>Former Principal Engineer at Stripe, expert in payment infrastructure.</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://example.com/emily-johnson.jpg" alt="Emily Johnson profile">
+                        <h4>Emily Johnson</h4>
+                        <h5>Head of Security</h5>
+                        <p>Cybersecurity expert with experience at major financial institutions.</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://example.com/david-park.jpg" alt="David Park profile">
+                        <h4>David Park</h4>
+                        <h5>Head of Product</h5>
+                        <p>Product leader focused on creating seamless user experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="values-section">
+            <div class="container">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-subtitle">The principles that guide our decisions and shape our culture.</p>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h4>Trust First</h4>
+                        <p>We earn trust through transparency, security, and consistent delivery of our promises to users.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>Global Mindset</h4>
+                        <p>We build products that work for everyone, everywhere, breaking down financial barriers.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>Continuous Innovation</h4>
+                        <p>We constantly push boundaries to create better, faster, and more secure payment solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="loading.html" class="footer-logo">
+                    <img src="https://example.com/quantum-pay-logo.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <p>Secure, fast, and reliable payment solutions for the modern world. Send money globally with bank-level encryption.</p>
+                <div class="social-icons">
+                    <a href="#"><img src="https://example.com/twitter-icon.svg" alt="Twitter"></a>
+                    <a href="#"><img src="https://example.com/linkedin-icon.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="https://example.com/facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#"><img src="https://example.com/instagram-icon.svg" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="legal.html">Privacy Policy</a></li>
+                    <li><a href="legal.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h5>Contact</h5>
+                <p>support@quantumpay.com</p>
+                <p>+1 (555) 123-4567</p>
+                <p>San Francisco, CA</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Quantum Pay. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('About page loaded!');
+
+            // Highlight the active navigation link based on the page.
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const path = window.location.pathname.split('/').pop();
+            navLinks.forEach(link => {
+                if (link.href.includes(path) && path !== '') {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    link.classList.add('active');
+                } else if (path === 'loading.html' && link.href.includes('loading.html')) {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
