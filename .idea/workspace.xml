@@ -4,39 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c3e2e20-adae-40b1-9a0f-9d64cde35254" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Quantum Pay_Frontend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/community.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/create-account-step1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/create-account-step2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/create-account-step3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard-login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/dashboard-getstarted.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/dashboard-main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/images/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/images/security icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/images/trusted icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/loading.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/settings-dash.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/transactions.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/dashboard/wallets.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/features.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/help.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/images/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/images/security icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/images/trusted icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/legal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/loading page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/pricing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/sign-in page.html" afterDir="false" />
+    <list default="true" id="1c3e2e20-adae-40b1-9a0f-9d64cde35254" name="Changes" comment="updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;knmensahdarkwa7&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CodeX7-0xE8/Quantum-Pay.git&quot;,
+    &quot;accountId&quot;: &quot;04775f19-6710-4cc7-a66f-a38c65df4d86&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -62,18 +43,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/knmen/PycharmProjects/Quantum Pay/dashboard/images&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/knmen/PycharmProjects/Quantum Pay Frontend",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\knmen\PycharmProjects\Quantum Pay Frontend" />
       <recent name="C:\Users\knmen\PycharmProjects\Quantum Pay\dashboard\images" />
       <recent name="C:\Users\knmen\PycharmProjects\Quantum Pay\dashboard" />
     </key>
@@ -100,6 +83,19 @@
       <option name="presentableId" value="Default" />
       <updated>1755013554892</updated>
     </task>
+    <task id="LOCAL-00001" summary="updated">
+      <option name="closed" value="true" />
+      <created>1755082164263</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1755082164263</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated" />
   </component>
 </project>
