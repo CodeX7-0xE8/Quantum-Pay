@@ -202,7 +202,7 @@
         </div>
         <h1 class="form-title">Sign in to your account</h1>
         <p class="form-subtitle">Welcome back! Please enter your details.</p>
-        <form action="#" method="post">
+        <form id="signin-form" action="#" method="post">
             <div class="form-group">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
@@ -218,12 +218,16 @@
                 </label>
                 <a href="#" class="forgot-password">Forgot Password?</a>
             </div>
-            <button type="submit" class="btn btn--primary">Sign In</button>
+            <button type="submit" class="btn btn--primary" data-original-text="Sign In">Sign In</button>
         </form>
         <div class="or-divider">or</div>
         <p class="signup-link">
-            Don't have an account? <a href="#">Create an account</a>
+            Don't have an account? <a href="create-account-step1.html">Create an account</a>
         </p>
     </main>
+
+    <!-- API Integration Scripts -->
+    <script src="../js/api-service.js"></script>
+    <script src="../js/auth-handler.js"></script>
 </body>
 </html>

@@ -1,0 +1,126 @@
+AUthentication
+
+https://x8ki-letl-twmt.n7.xano.io/api:Yh3BvUig#/auth/post_auth_login
+Login and retrieve an authentication token
+{
+  "email": "user@example.com",
+  "password": "string"
+}
+
+
+https://x8ki-letl-twmt.n7.xano.io/api:Yh3BvUig#/auth/get_auth_me
+Get the user record belonging to the authentication token
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "created_at": "now",
+  "name": "string",
+  "email": "user@example.com"
+}
+
+https://x8ki-letl-twmt.n7.xano.io/api:Yh3BvUig#/auth/post_auth_signup
+Signup and retrieve an authentication token
+{
+  "name": "string",
+  "email": "user@example.com",
+  "password": "string"
+}
+
+Transaction
+
+https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/transaction/delete_transaction__transaction_id_
+Name	Description
+transaction_id *
+string($uuid)
+(path)
+transaction_id
+
+
+GET https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/transaction/get_transaction__transaction_id_
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "created_at": "now",
+  "amount": 0,
+  "currency": "string",
+  "status": "string",
+  "transaction_date": 0,
+  "otp_code": "string",
+  "otp_verified": false,
+  "sender_user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "receiver_user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+
+Patch https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/transaction/patch_transaction__transaction_id_
+
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "created_at": "now",
+  "amount": 0,
+  "currency": "string",
+  "status": "string",
+  "transaction_date": 0,
+  "otp_code": "string",
+  "otp_verified": false,
+  "sender_user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "receiver_user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+
+GET all transaction https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/transaction/get_transaction
+
+
+post https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/transaction/post_transaction
+{
+  "amount": 0,
+  "currency": "string",
+  "status": "string",
+  "transaction_date": 0,
+  "otp_code": "string",
+  "otp_verified": false,
+  "sender_user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "receiver_user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+
+
+webhook_log
+Post https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/webhook_log/post_webhook_log
+{
+  "webhook_url": "string",
+  "payload": "string",
+  "status": "string",
+  "response": "string",
+  "transaction_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+
+Get https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/webhook_log/get_webhook_log
+[
+  {
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "created_at": "now",
+    "webhook_url": "string",
+    "payload": "string",
+    "status": "string",
+    "response": "string",
+    "transaction_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+]
+
+patch https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/webhook_log/patch_webhook_log__webhook_log_id_
+{
+  "webhook_url": "string",
+  "payload": "string",
+  "status": "string",
+  "response": "string",
+  "transaction_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+
+get webhook log record https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/webhook_log/get_webhook_log__webhook_log_id_
+ {
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "created_at": "now",
+  "webhook_url": "string",
+  "payload": "string",
+  "status": "string",
+  "response": "string",
+  "transaction_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+
+Delete https://x8ki-letl-twmt.n7.xano.io/api:1i6yBSwb#/webhook_log/delete_webhook_log__webhook_log_id_

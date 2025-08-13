@@ -273,7 +273,7 @@
         <p class="progress-text">33% Complete</p>
         <h1 class="form-title">Join Quantum Pay</h1>
         <p class="form-subtitle">Let's start with your basic information</p>
-        <form action="create-account-step2.html" method="get">
+        <form id="step1-form" action="create-account-step2.html" method="get">
             <div class="name-fields">
                 <div class="form-group">
                     <label for="first-name" class="form-label">First Name</label>
@@ -298,7 +298,7 @@
                     <input type="email" id="email" name="email" placeholder="john@example.com" required>
                 </div>
             </div>
-            <button type="submit" class="btn btn--primary">Continue</button>
+            <button type="submit" class="btn btn--primary" data-original-text="Continue">Continue</button>
         </form>
         <div class="or-divider">or continue with</div>
         <div class="social-buttons">
@@ -322,5 +322,9 @@
             </a>
         </div>
     </main>
+
+    <!-- API Integration Scripts -->
+    <script src="../js/api-service.js"></script>
+    <script src="../js/auth-handler.js"></script>
 </body>
 </html>

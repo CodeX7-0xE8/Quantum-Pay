@@ -265,7 +265,7 @@
         <p class="progress-text">67% Complete</p>
         <h1 class="form-title">Secure your account</h1>
         <p class="form-subtitle">Create a strong password to protect your account</p>
-        <form action="create-account-step3.html" method="get">
+        <form id="step2-form" action="create-account-step3.html" method="get">
             <div class="form-group">
                 <label for="password" class="form-label">Password</label>
                 <div class="form-input">
@@ -330,8 +330,12 @@
                     </li>
                 </ul>
             </div>
-            <button type="submit" class="btn btn--primary" style="margin-top: 2rem;">Continue</button>
+            <button type="submit" class="btn btn--primary" data-original-text="Continue" style="margin-top: 2rem;">Continue</button>
         </form>
     </main>
+
+    <!-- API Integration Scripts -->
+    <script src="../js/api-service.js"></script>
+    <script src="../js/auth-handler.js"></script>
 </body>
 </html>

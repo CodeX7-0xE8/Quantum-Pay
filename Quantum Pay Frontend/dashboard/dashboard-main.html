@@ -377,6 +377,216 @@
             border-radius: 50%;
         }
 
+        /* Send Money Form Styles */
+        .send-money-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.1);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a52e8;
+            transform: translateY(-1px);
+        }
+
+        .btn-small {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .btn-secondary {
+            background-color: #f3f4f6;
+            color: var(--text-color);
+        }
+
+        .btn-danger {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        /* Transaction Controls */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .transaction-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .transaction-controls input,
+        .transaction-controls select {
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .refresh-transactions {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .refresh-transactions:hover {
+            background-color: var(--primary-bg-color);
+        }
+
+        /* Status badges */
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-completed { background: #dcfce7; color: #166534; }
+        .status-pending { background: #fef3c7; color: #d97706; }
+        .status-cancelled { background: #fecaca; color: #dc2626; }
+
+        /* Transaction amounts */
+        .positive { color: #10b981; }
+        .negative { color: #ef4444; }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary-text-color);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: flex-end;
+        }
+
+        .transaction-detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .transaction-detail-item label {
+            font-weight: 500;
+            color: var(--secondary-text-color);
+        }
+
+        /* Loading states */
+        #transaction-loader {
+            text-align: center;
+            padding: 2rem;
+            color: var(--secondary-text-color);
+        }
+
+        .no-transactions {
+            text-align: center;
+            padding: 3rem;
+            color: var(--secondary-text-color);
+        }
+
+        .no-transactions__icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Fourth analytics card */
+        .analytics-cards {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+
+        .pending-card .amount {
+            font-size: 2rem;
+        }
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -473,45 +683,76 @@
                 <section class="analytics-cards">
                     <div class="card income-card">
                         <h3>Income</h3>
-                        <p class="amount">$5,250.00</p>
+                        <p class="amount" id="total-income">$0.00</p>
                     </div>
                     <div class="card expense-card">
                         <h3>Expense</h3>
-                        <p class="amount">$2,500.00</p>
+                        <p class="amount" id="total-expenses">$0.00</p>
                     </div>
                     <div class="card savings-card">
-                        <h3>Savings</h3>
-                        <p class="amount">$1,750.00</p>
+                        <h3>Balance</h3>
+                        <p class="amount" id="account-balance">$0.00</p>
+                    </div>
+                    <div class="card pending-card">
+                        <h3>Pending</h3>
+                        <p class="amount" id="pending-transactions">0</p>
                     </div>
                 </section>
 
+                <!-- Send Money Form -->
+                <section class="send-money-section">
+                    <h2>Send Money</h2>
+                    <form id="send-money-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="amount">Amount</label>
+                                <input type="number" id="amount" name="amount" placeholder="0.00" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="currency">Currency</label>
+                                <select id="currency" name="currency">
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="GBP">GBP</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="receiver_email">Recipient Email</label>
+                            <input type="email" id="receiver_email" name="receiver_email" placeholder="recipient@example.com" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Money</button>
+                    </form>
+                </section>
+
                 <section class="transaction-history">
-                    <h2>Transaction History</h2>
-                    <table>
+                    <div class="section-header">
+                        <h2>Transaction History</h2>
+                        <div class="transaction-controls">
+                            <input type="text" id="transaction-search" placeholder="Search transactions...">
+                            <select id="transaction-filter">
+                                <option value="all">All Transactions</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <button class="refresh-transactions">↻ Refresh</button>
+                        </div>
+                    </div>
+                    <div id="transaction-loader" style="display: none;">Loading transactions...</div>
+                    <table id="transaction-table">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Date</th>
-                                <th>Recipient</th>
+                                <th>Participant</th>
                                 <th>Amount</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2025-08-11</td>
-                                <td>Jane Doe</td>
-                                <td>$50.00</td>
-                                <td><span class="status completed">Completed</span></td>
-                                <td><a href="#">Details</a></td>
-                            </tr>
-                            <tr>
-                                <td>2025-08-10</td>
-                                <td>Acme Corp</td>
-                                <td>$120.00</td>
-                                <td><span class="status pending">Pending</span></td>
-                                <td><a href="#">Details</a></td>
-                            </tr>
+                            <!-- Transactions will be populated dynamically -->
                         </tbody>
                     </table>
                 </section>
@@ -552,10 +793,23 @@
             </main>
         </div>
     </div>
+    <!-- API Integration Scripts -->
+    <script src="../js/api-service.js"></script>
+    <script src="../js/auth-handler.js"></script>
+    <script src="../js/transaction-handler.js"></script>
     <script>
-        // Placeholder for future JavaScript functionality.
+        // Enhanced dashboard functionality
         document.addEventListener('DOMContentLoaded', () => {
             console.log("Dashboard UI is ready!");
+            
+            // Initialize authentication check
+            if (window.authHandler) {
+                window.authHandler.checkAuthStatus().then(isAuth => {
+                    if (!isAuth) {
+                        window.location.href = '../main/sign-in page.html';
+                    }
+                });
+            }
         });
     </script>
 </body>
