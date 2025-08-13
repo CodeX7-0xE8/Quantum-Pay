@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Pay - Contact Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-purple: #6a11cb;
+            --secondary-purple: #2575fc;
+            --light-purple: #eef2ff;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --cta-gradient: linear-gradient(to right, var(--primary-purple), var(--secondary-purple));
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.1);
+            --icon-green: #25a065;
+            --icon-orange: #f59e0b;
+            --icon-blue: #60a5fa;
+            --icon-violet: #a78bfa;
+            --icon-red: #f472b6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-purple);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-purple);
+            animation: fadeInUnderline 0.3s forwards;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .sign-in-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .sign-in-btn:hover {
+            color: var(--primary-purple);
+        }
+
+        .get-started-btn {
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInUnderline {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title-large {
+            font-size: 3rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        /* Contact Page Styles */
+        #contact-hero-section {
+            text-align: center;
+            padding: 6rem 0 4rem;
+        }
+
+        #contact-hero-section .section-title {
+            font-size: 3rem;
+            color: var(--primary-purple);
+        }
+
+        #contact-form-section {
+            padding: 2rem 0;
+        }
+
+        #contact-form-section .contact-form-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        #contact-form-section .form-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        #contact-form-section .form-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        #contact-form-section .form-card p.subtitle {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        #contact-form-section .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        #contact-form-section .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        #contact-form-section .name-email-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        #contact-form-section .form-group input,
+        #contact-form-section .form-group textarea,
+        #contact-form-section .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        #contact-form-section .form-group input::placeholder,
+        #contact-form-section .form-group textarea::placeholder,
+        #contact-form-section .form-group select {
+            color: var(--text-light);
+        }
+
+        #contact-form-section .form-group input:focus,
+        #contact-form-section .form-group textarea:focus,
+        #contact-form-section .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+        }
+
+        #contact-form-section .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        #contact-form-section .submit-btn {
+            width: 100%;
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        #contact-form-section .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #contact-form-section .contact-info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        #contact-form-section .info-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        #contact-form-section .info-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        #contact-form-section .info-card .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        #contact-form-section .info-card .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        #contact-form-section .info-card .contact-item .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+        }
+
+        #contact-form-section .info-card .contact-item .icon.email {
+            background-color: var(--icon-blue);
+        }
+
+        #contact-form-section .info-card .contact-item .icon.phone {
+            background-color: var(--icon-green);
+        }
+
+        #contact-form-section .info-card .contact-item .icon.address {
+            background-color: var(--icon-violet);
+        }
+
+        #contact-form-section .info-card .contact-item .icon.clock {
+            background-color: var(--icon-orange);
+        }
+
+        #contact-form-section .info-card .contact-item .icon img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        #contact-form-section .info-card .contact-item .content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-dark);
+        }
+
+        #contact-form-section .info-card .contact-item .content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        #contact-form-section .need-help-card {
+            background-color: var(--light-purple);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        #contact-form-section .need-help-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        #contact-form-section .need-help-card p {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        #contact-form-section .need-help-card .help-center-btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-purple);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        #contact-form-section .need-help-card .help-center-btn:hover {
+            background-color: var(--primary-purple);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-col h5 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a, .footer-contact p {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-purple);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a img {
+            width: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links, .nav-buttons .sign-in-btn {
+                display: none;
+            }
+            #contact-form-section .contact-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title, #contact-hero-section .section-title {
+                font-size: 2rem;
+            }
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="loading page.html" class="logo">
+                    <img src="images/icon.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="loading page.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="sign-in-btn">Sign In</button>
+                    <a href="#" class="get-started-btn">Get Started</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact-hero-section">
+            <div class="container text-center">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">Have questions about Quantum Pay? We're here to help. Reach out to our team.</p>
+            </div>
+        </section>
+
+        <section id="contact-form-section">
+            <div class="container">
+                <div class="contact-form-grid">
+                    <div class="form-card">
+                        <h3>Send us a message</h3>
+                        <p class="subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
+                        <form action="#" method="post">
+                            <div class="name-email-group">
+                                <div class="form-group">
+                                    <label for="full-name">Full Name</label>
+                                    <input type="text" id="full-name" name="full-name" placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select id="category" name="category">
+                                    <option>Select a category</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="billing">Billing & Pricing</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="feedback">Feedback</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="Brief description of your inquiry...">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Please provide details about your inquiry..."></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info-container">
+                        <div class="info-card">
+                            <h3>Contact Information</h3>
+                            <p class="subtitle">Get in touch with us through any of these channels.</p>
+                            <div class="contact-item">
+                                <div class="icon email"><img src="https://example.com/email-icon-white.svg" alt="Email Icon"></div>
+                                <div class="content">
+                                    <h4>Email</h4>
+                                    <p>support@quantumpay.com<br>We'll respond within 24 hours</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="icon phone"><img src="https://example.com/phone-icon-white.svg" alt="Phone Icon"></div>
+                                <div class="content">
+                                    <h4>Phone</h4>
+                                    <p>+1 (555) 123-4567<br>Available 24/7</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="icon address"><img src="https://example.com/map-pin-icon-white.svg" alt="Address Icon"></div>
+                                <div class="content">
+                                    <h4>Office</h4>
+                                    <p>123 Innovation Drive<br>San Francisco, CA 94105</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="icon clock"><img src="https://example.com/clock-icon-white.svg" alt="Business Hours Icon"></div>
+                                <div class="content">
+                                    <h4>Business Hours</h4>
+                                    <p>Monday - Friday: 9:00 AM - 6:00 PM PST<br>Weekend: Emergency support only</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="need-help-card">
+                            <h3>Need immediate help?</h3>
+                            <p>For urgent issues, check out our Help Center for instant answers to common questions.</p>
+                            <a href="#" class="help-center-btn">Visit Help Center</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="footer-logo">
+                    <img src="https://example.com/quantum-pay-logo.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <p class="footer-contact">
+                    Making global payments simple and secure for everyone.
+                </p>
+                <div class="social-icons">
+                    <a href="#"><img src="https://example.com/twitter-icon.svg" alt="Twitter"></a>
+                    <a href="#"><img src="https://example.com/facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#"><img src="https://example.com/linkedin-icon.svg" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="legal.html">Terms of Service</a></li>
+                    <li><a href="legal.html">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Quantum Pay. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            // Highlight the active link based on the current page
+            const currentPage = window.location.pathname.split('/').pop();
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage || (currentPage === '' && linkHref === '#')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

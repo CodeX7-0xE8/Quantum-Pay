@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallets | E-Payment App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* This CSS is the same as the dashboard.html file to ensure consistent styling. */
+        :root {
+            --primary-bg-color: #f7f9fc;
+            --secondary-bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --secondary-text-color: #666666;
+            --accent-color: #6c63ff;
+            --border-color: #e0e0e0;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+        .sidebar {
+            background-color: var(--secondary-bg-color);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .username {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .email {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+        }
+        .main-nav ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        .main-nav a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--secondary-text-color);
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .main-nav a:hover,
+        .main-nav a.active {
+            background-color: #e6e6f2;
+            color: var(--accent-color);
+        }
+        .main-nav a i {
+            margin-right: 1rem;
+        }
+        .quick-actions {
+            margin-top: auto;
+        }
+        .quick-actions h4 {
+            margin-bottom: 1rem;
+            color: var(--secondary-text-color);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .action-btn {
+            background-color: var(--primary-bg-color);
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .action-btn:hover {
+            background-color: var(--border-color);
+        }
+        .action-btn i {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        .main-content {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .wallets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .wallet-card {
+            background-color: var(--secondary-bg-color);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .wallet-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        .wallet-card .balance {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .wallet-card .currency {
+            font-size: 1rem;
+            color: var(--secondary-text-color);
+        }
+        .wallet-card .wallet-icon {
+            font-size: 2.5rem;
+            align-self: flex-end;
+            color: var(--accent-color);
+        }
+        .add-wallet-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--border-color);
+            background-color: transparent;
+            color: var(--secondary-text-color);
+            cursor: pointer;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .add-wallet-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        .add-wallet-btn i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .add-wallet-btn span {
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none;
+            }
+            .main-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="images/icon.png" alt="Logo">
+            </div>
+            <div class="user-profile">
+                <img src="images/profile.png" alt="User Avatar" class="avatar">
+                <div class="user-info">
+                    <span class="username">John Doe</span>
+                    <span class="email">john.doe@example.com</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard-main.html"><i class="fas fa-home"></i>Dashboard</a></li>
+                    <li><a href="transactions.html"><i class="fas fa-history"></i>Transactions</a></li>
+                    <li><a href="wallets.html" class="active"><i class="fas fa-wallet"></i>Wallets</a></li>
+                    <li><a href="settings-dash.html"><i class="fas fa-cog"></i>Settings</a></li>
+                </ul>
+            </nav>
+            <div class="quick-actions">
+                <h4>Quick Actions</h4>
+                <div class="actions-grid">
+                    <button class="action-btn"><i class="fas fa-paper-plane"></i>Send</button>
+                    <button class="action-btn"><i class="fas fa-money-bill-transfer"></i>Request</button>
+                    <button class="action-btn"><i class="fas fa-hand-holding-dollar"></i>Withdraw</button>
+                    <button class="action-btn"><i class="fas fa-arrow-up-from-bracket"></i>Top-up</button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <h1>My Wallets</h1>
+            <div class="wallets-grid">
+                <div class="wallet-card">
+                    <div>
+                        <h3>Main Account</h3>
+                        <p class="balance">$5,250.00</p>
+                        <p class="currency">USD</p>
+                    </div>
+                    <i class="fas fa-wallet wallet-icon"></i>
+                </div>
+                <div class="wallet-card">
+                    <div>
+                        <h3>Savings Account</h3>
+                        <p class="balance">$1,750.00</p>
+                        <p class="currency">USD</p>
+                    </div>
+                    <i class="fas fa-piggy-bank wallet-icon"></i>
+                </div>
+                <button class="wallet-card add-wallet-btn">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Add New Wallet</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

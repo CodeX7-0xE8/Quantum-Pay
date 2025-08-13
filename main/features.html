@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Pay - Features</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary-purple: #6a11cb;
+            --secondary-purple: #2575fc;
+            --light-purple: #eef2ff;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --cta-gradient: linear-gradient(to right, var(--primary-purple), var(--secondary-purple));
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-purple);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-purple);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .sign-in-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .sign-in-btn:hover {
+            color: var(--primary-purple);
+        }
+
+        .get-started-btn {
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Features Intro Section */
+        #features-intro-section {
+            background-color: var(--light-purple);
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-image: radial-gradient(at 0% 0%, #ffffff 0%, #eef2ff 50%, #ffffff 100%);
+        }
+
+        /* Core Values Section */
+        #core-values-section {
+            padding: 6rem 0;
+        }
+
+        .core-values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-card .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background-image: var(--cta-gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .value-card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-purple);
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Bank-Level Security Section */
+        #security-section {
+            padding: 6rem 0;
+            background-color: var(--light-purple);
+        }
+
+        .security-content {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .security-text {
+            flex: 1;
+        }
+
+        .security-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .security-text > p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .security-checklist {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .security-checklist p {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .security-checklist p::before {
+            content: '✔';
+            color: #10b981;
+            margin-right: 0.5rem;
+        }
+
+        .security-card {
+            background-color: #d1fae5;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .security-card .icon {
+            width: 48px;
+            height: 48px;
+            background-color: #34d399;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .security-timeline {
+            flex: 1;
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 25px;
+            bottom: -15px;
+            width: 2px;
+            background-color: var(--border-color);
+        }
+
+        .timeline-item .dot {
+            width: 18px;
+            height: 18px;
+            background-color: var(--primary-purple);
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .timeline-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+
+        /* Complete Feature Set Section */
+        #complete-features-section {
+            padding: 6rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-card .badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+
+        .feature-card .badge.popular {
+            background-color: #d1fae5;
+            color: #10b981;
+        }
+
+        .feature-card .badge.new {
+            background-color: #eef2ff;
+            color: var(--secondary-purple);
+        }
+
+        .feature-card .badge.premium {
+            background-color: #fffbeb;
+            color: #f59e0b;
+        }
+
+        .feature-card .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background-image: var(--cta-gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Trusted by Millions Section (New) */
+        #trusted-by-millions {
+            background-image: var(--cta-gradient);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        #trusted-by-millions h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .trusted-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .trusted-stats-grid .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .trusted-stats-grid .stat h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .trusted-stats-grid .stat p {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .trusted-btn-wrapper {
+            margin-top: 3rem;
+        }
+
+        .trusted-btn-wrapper .get-started-btn {
+            background-color: var(--white);
+            color: var(--primary-purple);
+            padding: 1rem 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-col h5 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a, .footer-contact p {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-purple);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 32px;
+            margin-right: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a img {
+            width: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-buttons {
+                display: none;
+            }
+            .security-content {
+                flex-direction: column;
+            }
+            .security-checklist {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="loading.html" class="logo">
+                    <img src="images/icon.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="loading page.html">Home</a></li>
+                    <li><a href="features.html" class="active">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community">Community</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="sign-in-btn">Sign In</button>
+                    <a href="#" class="get-started-btn">Get Started</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="features-intro-section" class="text-center">
+            <div class="container">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">Everything you need to manage your money with confidence. From security to speed, we've got you covered.</p>
+            </div>
+        </section>
+
+        <section id="core-values-section">
+            <div class="container">
+                <h2 class="section-title text-center">Our Core Values</h2>
+                <p class="section-subtitle text-center">The principles that guide everything we do at Quantum Pay.</p>
+                <div class="core-values-grid">
+                    <div class="value-card">
+                        <div class="icon">
+                            <img src="https://example.com/security-icon.svg" alt="Security icon">
+                        </div>
+                        <h4>Security</h4>
+                        <p>Bank-level encryption and multifactor authentication protect your funds and personal information at every step.</p>
+                        <ul>
+                            <li>256-bit SSL encryption</li>
+                            <li>Two-factor authentication</li>
+                            <li>Fraud detection</li>
+                            <li>PCI DSS compliant</li>
+                        </ul>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon">
+                            <img src="https://example.com/reliability-icon.svg" alt="Reliability icon">
+                        </div>
+                        <h4>Reliability</h4>
+                        <p>99.9% uptime with redundant systems ensuring your transactions are processed without interruption.</p>
+                        <ul>
+                            <li>99.9% uptime guarantee</li>
+                            <li>Redundant infrastructure</li>
+                            <li>Real-time monitoring</li>
+                            <li>Instant notifications</li>
+                        </ul>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon">
+                            <img src="https://example.com/user-experience-icon.svg" alt="User Experience icon">
+                        </div>
+                        <h4>User Experience</h4>
+                        <p>Intuitive design and seamless workflows make managing your finances effortless and enjoyable.</p>
+                        <ul>
+                            <li>Mobile-first design</li>
+                            <li>One-click payments</li>
+                            <li>Smart notifications</li>
+                            <li>24/7 support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="security-section">
+            <div class="container security-content">
+                <div class="security-text">
+                    <h2>Bank-Level Security</h2>
+                    <p>Your money and data are protected by the same security standards used by major financial institutions.</p>
+                    <div class="security-checklist">
+                        <p>End-to-end encryption</p>
+                        <p>Biometric authentication</p>
+                        <p>Real-time fraud monitoring</p>
+                        <p>Secure API endpoints</p>
+                        <p>Regular security audits</p>
+                        <p>GDPR compliant</p>
+                    </div>
+                    <div class="security-card">
+                        <div class="icon"><img src="https://example.com/check-icon.svg" alt="Check"></div>
+                        <div>
+                            <strong>100% Secure</strong>
+                            <p>Zero successful security breaches since 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="security-timeline">
+                    <h4>Security Timeline</h4>
+                    <div class="timeline-item">
+                        <div class="dot"></div>
+                        <div>
+                            <h4>Account Setup</h4>
+                            <p>Multifactor authentication enabled</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="dot"></div>
+                        <div>
+                            <h4>Transaction</h4>
+                            <p>Real-time fraud detection active</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="dot"></div>
+                        <div>
+                            <h4>Data Storage</h4>
+                            <p>End-to-end encryption applied</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="dot"></div>
+                        <div>
+                            <h4>Monitoring</h4>
+                            <p>24/7 security surveillance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="complete-features-section" class="text-center">
+            <div class="container">
+                <h2 class="section-title">Complete Feature Set</h2>
+                <p class="section-subtitle">Discover all the tools and capabilities that make Quantum Pay the best choice.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="badge popular">Most Popular</span>
+                        <div class="icon"><img src="https://example.com/global-payments-icon.svg" alt="Global Payments"></div>
+                        <h4>Global Payments</h4>
+                        <p>Send money to over 200 countries and territories with competitive exchange rates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="badge new">New</span>
+                        <div class="icon"><img src="https://example.com/mobile-app-icon.svg" alt="Mobile App"></div>
+                        <h4>Mobile App</h4>
+                        <p>Full-featured mobile apps for iOS and Android with biometric authentication.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="badge premium">Premium</span>
+                        <div class="icon"><img src="https://example.com/virtual-cards-icon.svg" alt="Virtual Cards"></div>
+                        <h4>Virtual Cards</h4>
+                        <p>Generate virtual debit cards instantly for secure online shopping.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><img src="https://example.com/analytics-icon.svg" alt="Analytics"></div>
+                        <h4>Analytics</h4>
+                        <p>Track and analyze your spending patterns with powerful financial insights.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><img src="https://example.com/privacy-icon.svg" alt="Privacy Protection"></div>
+                        <h4>Privacy Protection</h4>
+                        <p>Your data is our priority. We adhere to strict privacy policies and data protection regulations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><img src="https://example.com/support-icon.svg" alt="24/7 Support"></div>
+                        <h4>24/7 Support</h4>
+                        <p>Our dedicated support team is available around the clock to help you with any issues.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="trusted-by-millions">
+            <div class="container">
+                <h2 class="section-title">Trusted by Millions</h2>
+                <div class="trusted-stats-grid">
+                    <div class="stat">
+                        <h3>10M+</h3>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="stat">
+                        <h3>200+</h3>
+                        <p>Countries</p>
+                    </div>
+                    <div class="stat">
+                        <h3>99.9%</h3>
+                        <p>Uptime</p>
+                    </div>
+                    <div class="stat">
+                        <h3>$50B+</h3>
+                        <p>Processed</p>
+                    </div>
+                </div>
+                <div class="trusted-btn-wrapper">
+                    <a href="#" class="get-started-btn">Get Started Today &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="footer-logo">
+                    <img src="https://example.com/quantum-pay-logo.png" alt="Quantum Pay Logo">
+                    <span>Quantum Pay</span>
+                </a>
+                <p>Secure, fast, and reliable payment solutions for the modern world. Send money globally with bank-level encryption.</p>
+                <div class="social-icons">
+                    <a href="#"><img src="https://example.com/twitter-icon.svg" alt="Twitter"></a>
+                    <a href="#"><img src="https://example.com/linkedin-icon.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="https://example.com/facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#"><img src="https://example.com/instagram-icon.svg" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="legal.html">Privacy Policy</a></li>
+                    <li><a href="legal.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h5>Contact</h5>
+                <p>support@quantumpay.com</p>
+                <p>+1 (555) 123-4567</p>
+                <p>San Francisco, CA</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Quantum Pay. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Placeholder for future JavaScript functionality.
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Page loaded and ready!');
+
+            // Highlight the active navigation link based on the page.
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const path = window.location.pathname;
+            navLinks.forEach(link => {
+                if (link.href.includes(path) && path !== '/') {
+                    link.classList.add('active');
+                } else if (link.href.includes('loading.html') && path === '/') {
+                    // Assuming 'loading.html' is the home page
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
